@@ -138,5 +138,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 REST_USE_JWT = True
 
 JWT_AUTH = {
-    JWT_EXPIRATION_DELTA: datetime.timedelta(days=360)
+    "JWT_EXPIRATION_DELTA": datetime.timedelta(days=360)
 }
