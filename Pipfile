@@ -8,6 +8,11 @@ verify_ssl = true
 [packages]
 django = "*"
 djangorestframework = "*"
+django-rest-auth = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+djangorestframework-jwt = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
