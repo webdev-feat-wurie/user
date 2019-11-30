@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import datetime
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'grn3-k+=5j0rcv%!^c6*vg!0(4oae^)i^et*rgaui57e-5b5l^'
+SECRET_KEY = 'radenajengwurianditawahyumurticandrakiranadewi'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -135,3 +136,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # JWT Option
 
 REST_USE_JWT = True
+
+JWT_AUTH = {
+    JWT_EXPIRATION_DELTA: datetime.timedelta(days=360)
+}
