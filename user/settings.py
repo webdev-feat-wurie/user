@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'rest_auth'
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -84,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'HOST': 'db',
+        'HOST': 'user_db',
         'PORT': 5432
     }
 }
@@ -140,3 +142,7 @@ REST_USE_JWT = True
 JWT_AUTH = {
     "JWT_EXPIRATION_DELTA": datetime.timedelta(days=360)
 }
+
+# CORS
+
+CORS_ORIGIN_ALLOW_ALL = True

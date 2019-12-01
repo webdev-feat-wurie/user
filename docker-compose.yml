@@ -1,18 +1,18 @@
 version: "3"
 
 services:
-  db:
+  user_db:
     image: postgres:12
     volumes:
-      - data:/var/lib/postgresql/data
-  web:
+      - user_mysql:/var/lib/postgresql/data
+  user_web:
     build: .
     volumes:
       - .:/code
     ports:
       - "21700:21700"
     depends_on:
-      - db
+      - user_db
 
 volumes:
-  data:
+  user_mysql:

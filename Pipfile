@@ -13,6 +13,7 @@ gunicorn = "*"
 psycopg2-binary = "*"
 djangorestframework-jwt = "*"
 whitenoise = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
