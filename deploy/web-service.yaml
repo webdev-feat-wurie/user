@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-web-service
+spec:
+  selector:
+    app: user-web-container
+  ports:
+    - protocol: TCP
+      port: 21700
+      targetPort: 21700
+  type: NodePort
