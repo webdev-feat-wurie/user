@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-web-container
+  template:
+    metadata:
+      labels:
+        app: user-web-container
+    spec:
+      containers:
+        - name: user-web
+          image: ashpx/user-web
+          ports:
+            - containerPort: 21700
+          env:
+            - name: DB_HOST
+              value: postgres-service
+
+          volumeMounts:
+            - name: postgres-volume-mount
+              mountPath: /var/lib/busybox
+
+      volumes:
+        - name: postgres-volume-mount
+          persistentVolumeClaim:
+            claimName: postgres-pvc
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-web-service
+spec:
+  selector:
+    app: user-web-container
+  ports:
+    - protocol: TCP
+      port: 21700
+      targetPort: 21700
+  type: NodePort
